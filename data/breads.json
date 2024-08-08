@@ -1,0 +1,35 @@
+[
+    {
+        "name": "Kerala Parotta",
+        "description": "A famous South Indian flaky pancake made of flour and oil.",
+        "price": 2.60
+
+    },
+    {
+        "name": "Appam",
+        "description": "South Indian pancake made with rice batter and coconut milk.",
+        "price":2.20
+      },
+      {
+        "name": "Chapathi",
+        "description": "Stone-ground whole wheat flour, flattened round, and cooked in griddle.",
+        "price":2.20
+      },
+      {
+        "name": "Steamed Rice",
+        "description": "Plain steam cooked basmati rice.",
+        "price": 5.75
+      },
+    {
+        "name": "Cassava (Kappa)",
+        "description": "The third largest source of food carbohydrates and cooked with Savoy’s special aromas.",
+        "price": 8.79
+    },
+    {
+        "name": "Coconut Rice",
+        "description": "Steamed rice tempered with shredded coconut and curry leaves.",
+        "price": 8.25
+    }
+    
+
+]

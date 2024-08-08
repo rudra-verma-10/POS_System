@@ -1,0 +1,135 @@
+[
+    {
+        "name": "Mysore Masala Dosa",
+        "description": "Dosa topped with red chili, garlic dip, and filled with spiced potatoes. Serves with chutney and a cup of sambar.",
+        "price": 14.49
+
+    },
+    {
+        "name": "Masala Dosa",
+        "description": "Dosa filled with spiced potatoes. Serves with chutney and a cup of sambar",
+        "price":13.49
+      },
+      {
+        "name": "Idli and Sambar",
+        "description": "Rice, lentils, wet ground, and steamed cooked. One order comes with four pieces. Serves with chutney and a cup of sambar.",
+        "price":11.49
+      },
+      {
+        "name": "Uyunthu Wada",
+        "description": "Donut made of wet ground lentils. One order comes with four pieces. Serves with chutney and a cup of sambar.",
+        "price": 11.49
+      },
+    {
+        "name": "Ghee Roast Dosa",
+        "description": "Crispy dosa topped with clarified butter. Serves with chutney and a cup of sambar.",
+        "price": 11.99
+    },
+    {
+        "name": "Idli Vada",
+        "description": "Idli with one vada. Serves with chutney and a cup of sambar.",
+        "price": 12.99
+    },
+    {
+        "name": "Thattu Dosa",
+        "description": "Home-style dosa. Serves with chutney and a cup of sambar..",
+        "price": 11.99
+    },
+    {
+        "name": "Rava Masala Dosa",
+        "description": "Semolina dosa filled with spiced potatoes. Serves with chutney and a cup of sambar.",
+        "price": 17.49
+    },
+    {
+        "name": "Dahi Wada",
+        "description": "Soaked in seasoned yogurt. Serves with chutney and a cup of sambar.",
+        "price": 9.99
+    },
+    {
+        "name": "Thattil Kutti Dosa",
+        "description": "Mini uthappam topped with carrots, onions, and cilantro. Serves with chutney and a cup of sambar.",
+        "price": 14.49
+    },
+    {
+        "name": "Cheese Masala Dosa",
+        "description": "Dosa topped with nacho cheese and filled with spiced potatoes. Serves with chutney and a cup of sambar.",
+        "price": 15.99
+    },
+    {
+        "name": "Paneer Tikka Masala Dosa",
+        "description": "Dosa filled with charcoal grilled spiced paneer. Serves with chutney and a cup of sambar.",
+        "price": 17.49
+    },
+    {
+        "name": "Mysore Plain Dosa",
+        "description": "Dosa topped with red chili and garlic chutney. Serves with chutney and a cup of sambar.",
+        "price": 13.99
+    },
+    {
+        "name": "Onion Masala Dosa",
+        "description": "Dosa topped with sauteed onions and filled with spiced potatoes. Serves with chutney and a cup of sambar.",
+        "price":14.25
+    },
+    {
+        "name": "Paneer Masala Dosa",
+        "description": "Dosa filled with a special paneer. Serves with chutney and a cup of sambar.",
+        "price": 15.99
+    },
+    {
+        "name": "Masala Uttapam",
+        "description": "South Indian pizza made with wet ground lentils, rice, topped with onions, tomatoes, and cilantro leaves. Serves with chutney and a cup of sambar.",
+        "price": 14.29
+    },
+    {
+        "name": "Chicken Tikka Masala Dosa",
+        "description": "Dosa filled with charcoal grilled spiced chicken. Serves with chutney and a cup of sambar.",
+        "price": 17.99
+    },
+    {
+        "name": "Gobi Manchurian Dosa",
+        "description": "Dosa Filled with gobi manchurian. Served with two types of chutneys (dip) and a cup of sambar.",
+        "price": 16.49
+    },
+    {
+        "name": "Rasa Wada",
+        "description": "Soaked in lentil soup. Serves with chutney and a cup of sambar.",
+        "price": 10.49
+    },
+    {
+        "name": "Chicken Manchurian Dosa",
+        "description": "Dosa filled with chicken manchurian. Served with two types of chutneys (dip) and a cup of sambar.",
+        "price": 17.49
+    },
+    {
+        "name": "Rava Plain Dosa",
+        "description": "Seasoned semolina batter made into a crepe and rolled. Serves with chutney and a cup of sambar.",
+        "price":14.99
+    },
+    {
+        "name": "Cheese Plain Dosa",
+        "description": "Dosa topped with nacho cheese. Serves with chutney and a cup of sambar.",
+        "price": 14.49
+    },
+    {
+        "name": "Egg Ghee Masala Dosa",
+        "description": "Dosa topped with egg, ghee, and filled with spiced potatoes. Serves with chutney and a cup of sambar.",
+        "price": 15.99
+    },
+    {
+        "name": "Egg Ghee Dosa",
+        "description": "Dosa topped with egg and ghee. Serves with chutney and a cup of sambar.",
+        "price": 13.99
+    },
+    {
+        "name": "Onion Plain Dosa",
+        "description": "Dosa topped with sauteed onions. Serves with chutney and a cup of sambar.",
+        "price": 13.99
+    },
+    {
+        "name": "Chocolate Dosa",
+        "description": "Dosa filled with chocolate sauce. Served with two types of chutneys (dip) and a cup of sambar.",
+        "price": 14.99
+    }
+    
+
+]

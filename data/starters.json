@@ -1,0 +1,70 @@
+[
+    {
+        "name": "Gobi Manchurian",
+        "description": "It is made with cauliflower florets and then tossed in a spicy, sweet, sour, umami sauce.",
+        "price": 14.99 ,
+        "image": "gobi_manchurian.jpg"
+
+    },
+    {
+        "name": "Masala Idli",
+        "description": "Masala Idli is a spicy and tangy idli cooked in masala sauce.",
+        "price": 4.99,
+        "image": "masala_idli.jpg"
+      },
+      {
+        "name": "Vadda",
+        "description": "Vadda is savoury donut which comes with 2 delicious sauce - coconut and mint.",
+        "price": 3.99,
+        "image": "vadda.jpg"
+      },
+      {
+        "name": "Fries",
+        "description": "potato wedges fried in hot oil till crisped.",
+        "price": 2.99,
+        "image": "fries.jpg"
+      },
+    {
+        "name": "Kanthari Paneer",
+        "description": "Kanthari Paneer is a spicy and tangy paneer cooked in kanthari sauce.",
+        "price": 15.49,
+        "image": "kanthari_paneer.jpg"
+    },
+    {
+        "name": "Mushroom 65",
+        "description": "Mushroom 65 is a spicy, deep-fried mushroom dish.",
+        "price": 14.99,
+        "image": "mushroom_65.jpg"
+    },
+    {
+        "name": "Chilli Chicken",
+        "description": "chicken made with tossing it with chillies and bell-peppers.",
+        "price": 16.99,
+        "image": "chilli_chicken.jpg"
+    },
+    {
+        "name": "Chicken Lollipop",
+        "description": "Chicken Lollipop the chicken drumsticks glazed with flavoured sauces.",
+        "price": 17.99,
+        "image": "chicken_lollipop.jpg"
+    },
+    {
+        "name": "Chicken 65",
+        "description": "Chicken 65 is a spicy, deep-fried chicken dish.",
+        "price": 15.99,
+        "image": "chicken_65.jpg"
+    },
+    {
+        "name": "Fish Pakora",
+        "description": "Fish Fry is a crispy fish fry made with marinated fish.",
+        "price": 16.99,
+        "image": "fish_pakora.jpg"
+    },
+    {
+        "name": "Tawa Grilled Fish",
+        "description": "Tawa Grilled Fish is a spicy, tangy fish dish.",
+        "price": 15.99,
+        "image": "tawa_grilled_fish.jpg"
+    }
+
+]

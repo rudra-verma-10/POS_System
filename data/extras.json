@@ -1,0 +1,29 @@
+[
+    {
+        "name": "Sambar",
+        "price": 2.00
+
+    },
+    {
+        "name": "Wada",
+        "price":1.50
+      },
+      {
+        "name": "Idli",
+        "price":1.50
+      },
+      {
+        "name": "Chutney",
+        "price": 0.78
+      },
+    {
+        "name": "Pappad",
+        "price": 1.50
+    },
+    {
+        "name": "Raita",
+        "price": 1.45
+    }
+    
+
+]

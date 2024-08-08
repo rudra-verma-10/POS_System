@@ -1,0 +1,34 @@
+[
+    {
+        "name": "Chicken Kothu Paratha",
+        "description": "A traditional Sri Lankan dish made from flour.",
+        "price": 16.49
+
+    },
+    {
+        "name": "Beef Kothu Paratha",
+        "description": "A traditional Sri Lankan dish made from flour.",
+        "price":16.49
+      },
+      {
+        "name": "Veg Kothu Paratha",
+        "description": "A traditional Sri Lankan dish made from flour.",
+        "price":14.99
+      },
+      {
+        "name": "Egg Kothu Paratha",
+        "description": "A traditional Sri Lankan dish made from flour.",
+        "price": 14.99
+      },
+    {
+        "name": "Goat Kothu Paratha",
+        "description": "A traditional Sri Lankan dish made from flour.",
+        "price": 17.49
+    },
+    {
+        "name": "Chicken Tikka Kothu Parotta",
+        "description": "A traditional Sri Lankan dish made from flour.",
+        "price": 17.99
+    }
+
+]

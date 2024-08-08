@@ -1,0 +1,33 @@
+[
+    {
+        "name": "Chicken Noodle",
+        "price": 3.99,
+        "description": "A delicious soup made with chicken, noodles, and other ingredients.",
+        "image": "chicken_noodle.jpg"
+
+    },
+    {
+        "name": "Tomato",
+        "price": 2.99,
+        "description": "A delicious soup made with tomatoes, and other ingredients.",
+        "image": "tomato.jpg"
+    },
+    {
+        "name": "Beef and Barley",
+        "price": 4.99,
+        "description": "A delicious soup made with beef, barley, and other ingredients.",
+        "image": "beef_barley.jpg"
+    },
+    {
+        "name": "Cream of Mushroom",
+        "price": 3.99,
+        "description": "A delicious soup made with mushrooms, cream, and other ingredients.",
+        "image": "cream_mushroom.jpg"
+    },
+    {
+        "name": "Vegetable",
+        "price": 3.99,
+        "description": "A delicious soup made with vegetables, and other ingredients.",
+        "image": "vegetable.jpg"
+    }
+]

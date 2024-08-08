@@ -1,0 +1,49 @@
+[
+    {
+        "name": "Chicken Fried Rice",
+        "description": "Flavorful, simply delicious chicken fried rice.",
+        "price":17.49
+
+    },
+    {
+        "name": "Schezwan Chicken Fried Rice",
+        "description": "Delicious schezwan sauce tossed in  chicken fried rice",
+        "price":17.49
+      },
+      {
+        "name": "Vegetable Fried Rice",
+        "description": "Delicious Indo Chinese fried rice with fresh vegetables.",
+        "price":15.99
+      },
+      {
+        "name": "Chilli Chicken",
+        "description": "Indo Chinese sweet and spicy chicken.",
+        "price": 15.99
+      },
+    {
+        "name": "Egg Fried Rice",
+        "description": "Chinese style spicy egg fried rice.",
+        "price": 16.49
+    },
+    {
+        "name": "Schezwan Vegetable Fried Rice",
+        "description": "Delicious schezwan sauce tossed along with vegetables in  chicken fried rice",
+        "price": 15.99
+    },
+    {
+        "name": "Prawn Fried Rice",
+        "description": "Fried rice with delicious prawns and spicy toppings",
+        "price": 18.49
+    },
+    {
+        "name": " Schezwan Mixed Fried Rice",
+        "description": "Delicious schezwan chicken fried rice",
+        "price": 17.99
+    },
+    {
+        "name": "Chilly Prawn",
+        "description": "Garlic chili prawns in indo-chinese style.",
+        "price": 17.49
+    }
+
+]

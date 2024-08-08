@@ -1,0 +1,56 @@
+[
+    {
+        "name": "Chicken Biriyani",
+        "description": "Baked special rice layered with fried onions, cashews, and raisins. Serves with pickle and raita.",
+        "price": 15.49
+
+    },
+    {
+        "name": "Goat (Mutton) Biriyani",
+        "description": "Baked special rice layered with fried onions, cashews, and raisins. Serves with pickle and raita.",
+        "price":17.99
+      },
+      {
+        "name": "Vegetable Biriyani",
+        "description": "Baked special rice layered with fried onions, cashews, and raisins. Serves with pickle and raita.",
+        "price":14.29
+      },
+      {
+        "name": "Fish Biriyani",
+        "description": "Baked special rice layered with fried onions, cashews, and raisins. Serves with pickle and raita.",
+        "price": 17.99
+      },
+    {
+        "name": "Prawn Biriyani",
+        "description": "Baked special rice layered with fried onions, cashews, and raisins. Serves with pickle and raita",
+        "price": 18.99
+    },
+    {
+        "name": "Madkka Chicken Biryani (Kudukka)",
+        "description": "Special biriyani cooked and serves in a clay pot with Savoy's special spices.",
+        "price": 16.99
+    },
+    {
+        "name": "Madkka Goat Biryani (Kudukka)",
+        "description": "Special biriyani cooked and serves in a clay pot with Savoy's special spices.",
+        "price": 18.49
+    },
+    {
+        "name": "Madkka Vegetable Biryani (Kudukka)",
+        "description": "Special biriyani cooked and serves in a clay pot with Savoy's special spices.",
+        "price": 15.99
+    },
+    {
+        "name": "Madkka Fish Biryani (Kudukka)",
+        "description": "Special biriyani cooked and served in a clay pot with Savoy's special spices.",
+        "price": 18.49
+    },
+    {
+        "name": "Matka Prawn Biryani (Kudukka)",
+        "description": "Special biriyani cooked and served in a clay pot with Savoy's special spices.",
+        "price": 19.49,
+        "image": "fish_pakora.jpg"
+    }
+    
+
+]

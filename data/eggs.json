@@ -1,0 +1,24 @@
+[
+    {
+        "name": "Egg Roast",
+        "description": "Hard-boiled egg stir-fried in onions and tomatoes.",
+        "price": 12.49
+
+    },
+    {
+        "name": "Egg Masala",
+        "description": "Hard-boiled egg cooked in onion and tomato gravy.",
+        "price":12.49
+      },
+      {
+        "name": "Egg Bhurji",
+        "description": "Scrambled egg cooked with onions, tomatoes, and chilies.",
+        "price":7.50
+      },
+      {
+        "name": "Omelette",
+        "description": "Beaten eggs fried with vegetables in a frying pan.",
+        "price": 6.50
+      }
+
+    ]

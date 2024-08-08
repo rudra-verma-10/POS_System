@@ -1,0 +1,65 @@
+[
+    {
+        "name": "Mango Lassi",
+        "description": "Sweet lassi mixed with mango slices",
+        "price": 7.15
+
+    },
+    {
+        "name": "South Indian Filter Coffee",
+        "description": "Coffee filtered with south Indian coffee",
+        "price":3.29
+      },
+      {
+        "name": "Mango Milkshake",
+        "description": "Milkshake prepared with mango flavour",
+        "price":7.49
+      },
+      {
+        "name": "Masala Tea",
+        "description": "Tea prepared with authentic Indian masala",
+        "price": 2.75
+      },
+    {
+        "name": "Salt Lassi",
+        "description": "Sour curd mixed with masala water",
+        "price": 5.99
+    },
+    {
+        "name": "Sweet Lassi",
+        "description": "Sweet curd mixed with water",
+        "price": 5.99
+    },
+    {
+        "name": "Tea",
+        "description": "South indian tea with amazing taste",
+        "price": 2.75
+    },
+    {
+        "name": "Chocolate Milkshake",
+        "description": "Milkshake prepared with chocolate syrup",
+        "price": 7.49
+    },
+    {
+        "name": "Strawberry Milkshake",
+        "description": "Milkshake prepared with strawberry syrup",
+        "price": 7.49
+    },
+    {
+        "name": "Fresh Lime Soda",
+        "description": "Soda water prepared with fresh lime",
+        "price": 7.15
+    },
+    {
+        "name": "Fresh Lime Juice",
+        "description": "Juice with amazing taste of lime",
+        "price": 7.49
+    },
+    {
+        "name": "Mango Juice",
+        "description": "Juice prepared with mango slices in a mixer",
+        "price": 6.49
+    }
+    
+
+]

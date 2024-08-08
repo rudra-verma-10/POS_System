@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Payasam",
+        "description": "Rice pudding made with rice, condensed milk, sugar, flavored with cardamom, raisins, and cashews.",
+        "price": 6.59
+
+    },
+    {
+        "name": "Hot Gulab Jamun with Ice Cream",
+        "description": "Hot gulab jamun served with cold ice cream.",
+        "price":6.99
+      },
+      {
+        "name": "Ice Cream",
+        "description": "Ice cream with varient flavours",
+        "price":3.29
+      }
+
+]
