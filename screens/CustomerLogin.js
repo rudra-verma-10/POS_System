@@ -30,7 +30,10 @@ const CustomerLogin = () => {
 
   const handleStartOrdering = () => {
     if (canProceed) {
-      navigation.navigate("OrderPage");
+      navigation.navigate("OrderPage", {
+        customerName: name,
+        phoneNumber: phoneNumber,
+        tableNumber: tableNumber,});
     } else {
       Alert.alert("Invalid Input", "Please ensure all fields are correctly filled.");
     }

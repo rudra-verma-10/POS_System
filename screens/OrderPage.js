@@ -25,17 +25,24 @@ import eggsData from "../data/eggs.json";
 import extrasData from "../data/extras.json";
 import chineseSpecialData from "../data/chineseSpecial.json";
 
-import { getDatabase, ref, push, set} from "firebase/database";
+import { getDatabase, ref, push, set, serverTimestamp} from "firebase/database";
 import { app, database } from "../firebase";
 
-const OrderPage = ({navigation}) => {
+import { useNavigation, useRoute } from "@react-navigation/native"
+
+const OrderPage = ({}) => {
   const [selectedCategory, setSelectedCategory] = useState("Biryani");
   const [foodItems, setFoodItems] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [comment, setComment] = useState(""); // State to hold comment text
   const scrollViewRef = useRef();
-  const customerName = "John Doe";
+  // const customerName = "John Doe";
+
+  const route = useRoute();
+  const navigation = useNavigation();
+
+  const { customerName,  tableNumber } = route.params;
 
   useEffect(() => {
     loadFoodItems(selectedCategory);
@@ -136,29 +143,24 @@ const OrderPage = ({navigation}) => {
   };
 
   const handleOrder = async () => {
+    const db = getDatabase(app);
+    const ordersRef = ref(db, "orders/");
+    const newOrderRef = push(ordersRef);
+
     try {
-      const db = getDatabase(app);
-      const ordersRef = push(ref(db, "orders/"));
-      
-      console.log("Preparing to send order:", {
-        customerName,
-        orderItems: cartItems,
-        totalAmount: calculateTotal(),
-      });
-  
-      await set(ordersRef, {
+      await set(newOrderRef, {
         customerName: customerName,
+        tableNumber: tableNumber,
         orderItems: cartItems,
         totalAmount: calculateTotal(),
       });
-  
       Alert.alert("Order placed successfully!");
       setCartItems([]);
     } catch (error) {
       console.error("Error placing order: ", error);
       Alert.alert("Error placing order. Please try again.");
     }
-  };  
+  };
   
 
   const handleComments = () => {
@@ -170,9 +172,23 @@ const OrderPage = ({navigation}) => {
     setModalVisible(false);
   };
 
-  const handleAssistance = () => {
-    // Handle assistance functionality
-  }
+  const handleAssistance = async () => {
+    const db = getDatabase(app);
+    const assistanceRef = ref(db, "assistance/");
+    const newAssistanceRef = push(assistanceRef);
+  
+    try {
+      await set(newAssistanceRef, {
+        tableNumber: tableNumber,
+        customerName: customerName,
+      });
+      Alert.alert("Assistance request sent successfully!");
+    } catch (error) {
+      console.error("Error sending assistance request: ", error);
+      Alert.alert("Error sending assistance request. Please try again.");
+    }
+  };
+  
 
   return (
     <View style={styles.container}>

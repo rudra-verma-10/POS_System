@@ -1,79 +1,141 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
-import { database } from '../firebase';
-import { ref, onValue } from 'firebase/database';
+import { StyleSheet, View, Text, Button, FlatList, Alert } from 'react-native';
+import { getDatabase, ref, onValue, update } from 'firebase/database';
 
-const StaffPage = () => {
+const OrderScreen = () => {
   const [orders, setOrders] = useState([]);
+  const [elapsedTimes, setElapsedTimes] = useState({});
 
   useEffect(() => {
-    const ordersRef = ref(database, 'orders');
+    const db = getDatabase();
+    const ordersRef = ref(db, 'orders/');
     const unsubscribe = onValue(ordersRef, (snapshot) => {
-      const ordersData = snapshot.val();
-      if (ordersData) {
-        const ordersList = Object.keys(ordersData).map(key => ({
-          id: key,
-          ...ordersData[key]
-        }));
-        setOrders(ordersList);
-        console.log("Fetched orders:", ordersList);
+      const data = snapshot.val();
+      if (data) {
+        const formattedData = Object.keys(data)
+          .map(key => ({ id: key, ...data[key] }))
+          .filter(order => order.status !== 'bumped'); // Filter out bumped orders
+        setOrders(formattedData);
+
+        // Initialize elapsed times
+        const initialElapsedTimes = {};
+        formattedData.forEach(order => {
+          initialElapsedTimes[order.id] = calculateElapsedTime(order.timestamp);
+        });
+        setElapsedTimes(initialElapsedTimes);
       }
     });
 
     return () => unsubscribe();
   }, []);
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.header}>Orders</Text>
-      <FlatList
-        data={orders}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <View style={styles.orderItem}>
-            <Text style={styles.customerName}>{item.customerName}</Text>
-            <Text style={styles.orderDetails}>
-              {item.orderItems.map(i => `${i.name} (${i.quantity})`).join(', ')}
-            </Text>
-            <Text style={styles.totalAmount}>Total: ${item.totalAmount}</Text>
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const updatedElapsedTimes = { ...elapsedTimes };
+      orders.forEach(order => {
+        updatedElapsedTimes[order.id] = calculateElapsedTime(order.timestamp);
+      });
+      setElapsedTimes(updatedElapsedTimes);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [orders, elapsedTimes]);
+
+  const calculateElapsedTime = (timestamp) => {
+    const orderTime = new Date(timestamp);
+    const currentTime = new Date();
+    const elapsed = Math.floor((currentTime - orderTime) / 1000); // in seconds
+    return elapsed;
+  };
+
+  const handleStartPreparing = (orderId) => {
+    const db = getDatabase();
+    const orderRef = ref(db, `orders/${orderId}`);
+    update(orderRef, { status: 'Preparing' });
+  };
+
+  const handlePrepared = (orderId) => {
+    const db = getDatabase();
+    const orderRef = ref(db, `orders/${orderId}`);
+    update(orderRef, { status: 'Prepared' });
+  };
+
+  const handleBumpOrder = (orderId) => {
+    Alert.alert(
+      "Confirm Bump",
+      "Are you sure you want to bump this order?",
+      [
+        { text: "Cancel", style: "cancel" },
+        { text: "Yes", onPress: () => {
+          const db = getDatabase();
+          const orderRef = ref(db, `orders/${orderId}`);
+          update(orderRef, { status: 'bumped' });
+        }}
+      ]
+    );
+  };
+
+  const renderOrderItem = ({ item }) => {
+    const elapsedTime = elapsedTimes[item.id] || 0;
+
+    const minutes = Math.floor(elapsedTime / 60);
+    const seconds = elapsedTime % 60;
+
+    let backgroundColor = '#fff';
+    if (item.status === 'Preparing') {
+      backgroundColor = '#FFD700';
+    } else if (item.status === 'Prepared') {
+      backgroundColor = "#4CAF50";
+    }
+
+    return (
+      <View style={[styles.orderItem, { backgroundColor }]}>
+        <Text>Customer: {item.customerName}</Text>
+        <Text>Table: {item.tableNumber}</Text>
+        <Text>Order Items: {item.orderItems.join(', ')}</Text>
+        <Text>Total Amount: {item.totalAmount}</Text>
+        <Text>Elapsed Time: {minutes} minutes {seconds} seconds</Text>
+        <View style={styles.buttonContainer}>
+          <View style={styles.buttonWrapper}>
+            <Button title="Start Preparing" onPress={() => handleStartPreparing(item.id)} />
           </View>
-        )}
-      />
-    </View>
+          <View style={styles.buttonWrapper}>
+            <Button title="Prepared" onPress={() => handlePrepared(item.id)} />
+          </View>
+          <View style={styles.buttonWrapper}>
+            <Button title="Bump Order" onPress={() => handleBumpOrder(item.id)} />
+          </View>
+        </View>
+      </View>
+    );
+  };
+
+  return (
+    <FlatList
+      data={orders}
+      renderItem={renderOrderItem}
+      keyExtractor={item => item.id}
+    />
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-    backgroundColor: '#fff'
-  },
-  header: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 16
-  },
   orderItem: {
-    marginBottom: 16,
-    padding: 16,
-    borderColor: '#ccc',
-    borderWidth: 1,
-    borderRadius: 8
+    padding: 20,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+    marginVertical: 10, // Add margin for better visual separation
+    borderRadius: 10, // Add border radius for rounded corners
   },
-  customerName: {
-    fontSize: 18,
-    fontWeight: 'bold'
+  buttonContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 10,
   },
-  orderDetails: {
-    fontSize: 16,
-    marginTop: 8
+  buttonWrapper: {
+    flex: 1,
+    marginHorizontal: 5,
   },
-  totalAmount: {
-    fontSize: 16,
-    marginTop: 8,
-    fontWeight: 'bold'
-  }
 });
 
-export default StaffPage;
+export default OrderScreen;
