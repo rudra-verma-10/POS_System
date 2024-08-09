@@ -12,7 +12,8 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/b5c94668-2045-4e12-9d37-ac44aae97ae3"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -28,6 +29,15 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b5c94668-2045-4e12-9d37-ac44aae97ae3"
+      }
+    },
+    "owner": "rudraverma",
+    "runtimeVersion": {
+      "policy": "appVersion"
     }
   }
 }

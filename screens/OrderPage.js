@@ -42,7 +42,7 @@ const OrderPage = ({}) => {
   const route = useRoute();
   const navigation = useNavigation();
 
-  const { customerName,  tableNumber } = route.params;
+  const { customerName,  tableNumber,  } = route.params;
 
   useEffect(() => {
     loadFoodItems(selectedCategory);
@@ -152,6 +152,7 @@ const OrderPage = ({}) => {
         customerName: customerName,
         tableNumber: tableNumber,
         orderItems: cartItems,
+        comment: comment,
         totalAmount: calculateTotal(),
       });
       Alert.alert("Order placed successfully!");
@@ -172,23 +173,7 @@ const OrderPage = ({}) => {
     setModalVisible(false);
   };
 
-  const handleAssistance = async () => {
-    const db = getDatabase(app);
-    const assistanceRef = ref(db, "assistance/");
-    const newAssistanceRef = push(assistanceRef);
-  
-    try {
-      await set(newAssistanceRef, {
-        tableNumber: tableNumber,
-        customerName: customerName,
-      });
-      Alert.alert("Assistance request sent successfully!");
-    } catch (error) {
-      console.error("Error sending assistance request: ", error);
-      Alert.alert("Error sending assistance request. Please try again.");
-    }
-  };
-  
+ 
 
   return (
     <View style={styles.container}>
@@ -336,9 +321,9 @@ const OrderPage = ({}) => {
             <TouchableOpacity style={styles.button} onPress={handleComments}>
               <Text style={styles.buttonText}>Comments</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={handleAssistance}>
+            {/* <TouchableOpacity style={styles.button} onPress={handleAssistance}>
               <Text style={styles.buttonText}>Assistance</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
         </View>
       </View>

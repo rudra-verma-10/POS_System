@@ -11,20 +11,17 @@ const OrderScreen = () => {
     const ordersRef = ref(db, 'orders/');
     const unsubscribe = onValue(ordersRef, (snapshot) => {
       const data = snapshot.val();
+      console.log("Firebase data:", data); // Check if data is retrieved
       if (data) {
         const formattedData = Object.keys(data)
           .map(key => ({ id: key, ...data[key] }))
-          .filter(order => order.status !== 'bumped'); // Filter out bumped orders
+          .filter(order => order.status !== 'bumped');
         setOrders(formattedData);
-
-        // Initialize elapsed times
-        const initialElapsedTimes = {};
-        formattedData.forEach(order => {
-          initialElapsedTimes[order.id] = calculateElapsedTime(order.timestamp);
-        });
-        setElapsedTimes(initialElapsedTimes);
+      } else {
+        console.log("No data available");
       }
     });
+    
 
     return () => unsubscribe();
   }, []);
@@ -87,12 +84,22 @@ const OrderScreen = () => {
     } else if (item.status === 'Prepared') {
       backgroundColor = "#4CAF50";
     }
+    let orderItemsDisplay;
+  if (Array.isArray(item.orderItems)) {
+    orderItemsDisplay = item.orderItems.map(orderItem => {
+      // Assuming each order item object has a 'name' property
+      return orderItem.name || JSON.stringify(orderItem);
+    }).join(', ');
+  } else {
+    orderItemsDisplay = JSON.stringify(item.orderItems);
+  }
 
     return (
       <View style={[styles.orderItem, { backgroundColor }]}>
         <Text>Customer: {item.customerName}</Text>
         <Text>Table: {item.tableNumber}</Text>
-        <Text>Order Items: {item.orderItems.join(', ')}</Text>
+        <Text>Order Items: {item.orderItems.map(o => o.name).join(', ')}</Text>
+        <Text>Comments: {item.comment}</Text>
         <Text>Total Amount: {item.totalAmount}</Text>
         <Text>Elapsed Time: {minutes} minutes {seconds} seconds</Text>
         <View style={styles.buttonContainer}>

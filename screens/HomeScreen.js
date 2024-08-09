@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Alert } from "react-native";
 import { Color, Border, FontSize, FontFamily } from "../GlobalStyles";
-import { getDatabase, ref, onValue, remove } from "firebase/database";
+import { getDatabase, ref, onValue, set, off } from "firebase/database";
 import { app } from "../firebase";
 
 const HomeScreen = () => {
   const initialTableStatus = Array(15).fill("available");
   const [tableStatus, setTableStatus] = useState(initialTableStatus);
-  const [assistanceRequests, setAssistanceRequests] = useState([]);
+  const [assistanceRequests, setAssistanceRequests] = useState({});
 
   const toggleTableStatus = (index) => {
     setTableStatus((prevStatus) => {
@@ -18,48 +18,9 @@ const HomeScreen = () => {
     });
   };
 
-  useEffect(() => {
-    const db = getDatabase(app);
-    const assistanceRef = ref(db, "assistance/");
-
-    const handleData = (snapshot) => {
-      const data = snapshot.val();
-      if (data) {
-        const requests = Object.values(data);
-        setAssistanceRequests(requests);
-      } else {
-        setAssistanceRequests([]);
-      }
-    };
-
-    const dismissAssistance = (tableNumber) => {
-      const db = getDatabase(app);
-      const assistanceRef = ref(db, `assistanceRequests/table${tableNumber}`);
   
-      set(assistanceRef, null)
-        .then(() => {
-          Alert.alert("Assistance request dismissed");
-        })
-        .catch((error) => {
-          console.error("Error dismissing assistance request: ", error);
-          Alert.alert("Error dismissing assistance request. Please try again.");
-        });
-    };
 
-    onValue(assistanceRef, handleData);
-
-    return () => {
-      // Clean up listener on unmount
-      off(assistanceRef, "value", handleData);
-    };
-  }, []);
-
-  const handleAssistanceAlert = (tableNumber) => {
-    Alert.alert(`Assistance requested for Table ${tableNumber}`);
-    // Optionally, remove the request from the database after handling
-    // remove(ref(db, `assistance/${requestId}`));
-  };
-
+  
   return (
     <View style={styles.container}>
       <View style={styles.mainscreen}>
@@ -75,17 +36,7 @@ const HomeScreen = () => {
             >
               <Text style={styles.tableText}>Table {index + 1}</Text>
               <Text style={styles.tableText}>{status}</Text>
-              {assistanceRequests[`table${index + 1}`] && (
-                <View style={styles.assistanceContainer}>
-                  <Text style={styles.assistanceText}>Needs Assistance</Text>
-                  <TouchableOpacity
-                    style={styles.dismissButton}
-                    onPress={() => dismissAssistance(index + 1)}
-                  >
-                    <Text style={styles.dismissButtonText}>Dismiss</Text>
-                  </TouchableOpacity>
-                </View>
-              )}
+              
             </TouchableOpacity>
           ))}
         </View>
